@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import LineUp from 'lineupjsx'
+import 'lineupjsx/build/LineUpJSx.css'
 
 const App = () => {
+  const arr = [];
+  const cats = ['c1', 'c2', 'c3'];
+  for (let i = 0; i < 100; ++i) {
+    arr.push({
+      a: Math.random() * 10,
+      d: 'Row ' + i,
+      cat: cats[Math.floor(Math.random() * 3)],
+      cat2: cats[Math.floor(Math.random() * 3)]
+    })
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LineUp data={arr}/>
   );
 }
 
